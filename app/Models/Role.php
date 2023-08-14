@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Role extends Model
 {
+
+    const ADMIN = 'admin';
+    const MANAGER = 'manager';
+    const COUNSELOR = 'counselor';
+    const PARENT = 'parent';
+    const VISITOR = 'visitor';
+    const MENTOR = 'mentor';
+    const STUDENT = 'student';
+    const ADVERTISER = 'advertiser';
+
+
+
     use HasFactory;
 
     // Role model
