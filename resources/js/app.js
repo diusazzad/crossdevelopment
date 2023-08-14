@@ -1,8 +1,14 @@
 import './bootstrap';
 import '../css/app.css';
-import 'boxicons/css/boxicons.min.css';import 'flowbite';
+import 'boxicons/css/boxicons.min.css'; import 'flowbite';
 import 'flowbite';
+import 'chart.js'
 
+// Admin
+// import Dashboard from './Components/Admin/Dashboard.vue';
+// import Dashboard from './Layouts/Admin/Dashboard.vue';
+// import Dashboard from './Components/Admin/Dashboard.vue';
+// import Dashboard from './Layouts/Admin/Dashboard.vue';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';

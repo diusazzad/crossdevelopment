@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "boxicons": "^2.1.4",
+        "chart.js": "^4.3.3",
         "flowbite": "^1.8.1"
     }
 }
