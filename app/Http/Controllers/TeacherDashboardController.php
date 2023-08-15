@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class TeacherDashboardController extends Controller
 {
-    //
+    Public function TeacherDashboard(){
+        
+    }
 }

@@ -16,6 +16,12 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            zIndex: {
+                '-1': '-1',
+              },
+              flexGrow: {
+                '5' : '5'
+              },
         },
     },
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Role extends Model
 {
-
+    use HasFactory;
     const ADMIN = 'admin';
     const MANAGER = 'manager';
     const COUNSELOR = 'counselor';
@@ -18,10 +18,9 @@ class Role extends Model
     const STUDENT = 'student';
     const ADVERTISER = 'advertiser';
 
-
-
-    use HasFactory;
-
+    protected $fillable = [
+        'name'
+    ];
     // Role model
     public function users(): HasMany
     {

@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- <div class="flex items-center justify-center min-h-screen m-10">
+        <div class="w-full p-8 bg-white rounded-lg shadow-md">
+            <h1 class="mb-6 text-2xl font-semibold text-center">Flight Search Results</h1>
+            <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-1">
+                    <p class="font-semibold">Flight Number:</p>
+                    <p class="font-semibold">Date:</p>
+                    <p class="font-semibold">Time:</p>
+                </div>
+                <div class="col-span-2">
+                    <p>Tk3030</p>
+                    <p>20 Feb 2023</p>
+                    <p>23:40</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 gap-6 pt-6 mt-6 border-t border-gray-300 md:grid-cols-3">
+                <div class="col-span-1">
+                    <label class="font-semibold" for="selectSeat">Select Your Seat Number:</label>
+                    <select id="selectSeat" class="p-2 border rounded-md">
+                        <option value="1A">1A</option>
+
+                    </select>
+                </div>
+                <div class="col-span-1">
+                    <label class="font-semibold" for="swapSeat">Swap to Seat Number:</label>
+                    <select id="swapSeat" class="p-2 border rounded-md">
+                        <option value="Any">Any</option>
+
+                    </select>
+                </div>
+                <div class="col-span-1">
+                    <label class="font-semibold" for="contactEmail">Contact Email:</label>
+                    <input type="email" id="contactEmail" class="p-2 border rounded-md">
+                </div>
+            </div>
+            <button class="px-4 py-2 mt-6 text-white bg-blue-500 rounded-md hover:bg-blue-600">Post</button>
+            <div class="grid grid-cols-3 gap-6 mt-6">
+                <div class="col-span-1">
+                    <p class="font-semibold">My Seat:</p>
+                    <p class="font-semibold">Swap to:</p>
+                    <p class="font-semibold">Email:</p>
+                </div>
+                <div class="col-span-2">
+                    <p>1A</p>
+                    <p>1A</p>
+                    <p>saasdfa@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <div class="container py-10 mx-auto">
+        <h1 class="mb-10 text-3xl font-bold text-center">Flight Search Results</h1>
+        <div class="p-6 mb-10 bg-white rounded-lg shadow-md">
+          <h2 class="mb-4 text-xl font-bold">Flight Details</h2>
+          <div class="flex flex-row justify-between mb-4">
+            <div>
+              <p class="text-gray-500">Flight Number</p>
+              <p class="font-bold">ABC123</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Date</p>
+              <p class="font-bold">20 Feb 2023</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Time</p>
+              <p class="font-bold">23:40</p>
+            </div>
+          </div>
+          <div class="pt-4 mb-4 border-t border-gray-300">
+            <div class="flex flex-col mb-4">
+              <label for="seat-number" class="mb-2 text-gray-500">Select Your Seat Number</label>
+              <select name="seat-number" id="seat-number" class="px-3 py-2 border rounded-lg">
+                <option value="12A">12A</option>
+                <option value="12B">12B</option>
+                <option value="12C">12C</option>
+              </select>
+            </div>
+            <div class="flex flex-col mb-4">
+              <label for="swap-seat-number" class="mb-2 text-gray-500">Swap to Seat Number</label>
+              <select name="swap-seat-number" id="swap-seat-number" class="px-3 py-2 border rounded-lg">
+                <option value="Any">Any</option>
+                <option value="15A">15A</option>
+                <option value="15B">15B</option>
+                <option value="15C">15C</option>
+              </select>
+            </div>
+            <div class="flex flex-col">
+              <label for="contact-email" class="mb-2 text-gray-500">Contact Email</label>
+              <input type="email" name="contact-email" id="contact-email" class="px-3 py-2 border rounded-lg">
+            </div>
+          </div>
+          <button class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600">Post</button>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-md">
+          <h2 class="mb-4 text-xl font-bold">Recipient Details</h2>
+          <div class="flex flex-row justify-between mb-4">
+            <div>
+              <p class="text-gray-500">Name</p>
+              <p class="font-bold">John Doe</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Email</p>
+              <p class="font-bold">john.doe@example.com</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Phone</p>
+              <p class="font-bold">+1 123-456-7890</p>
+            </div>
+            <div>
+              <p class="text-gray-500">Seat Number</p>
+              <p class="font-bold">12A</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+</body>
+</html>

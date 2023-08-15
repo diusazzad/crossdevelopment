@@ -30,6 +30,21 @@ class UsersTableSeeder extends Seeder
             'role_id' => $adminRole->id,
         ]);
 
+        $studentRole = Role::where('name', 'Student')->first();
+
+        User::create([
+            'name' => 'John Doe student',
+            'email' => 'johndoe@student.com',
+            'password' => bcrypt('password'),
+            'role_id' => $studentRole->id,
+        ]);
+
+        User::create([
+            'name' => 'Jane Doe student',
+            'email' => 'janedoe@student.com',
+            'password' => bcrypt('password'),
+            'role_id' => $studentRole->id,
+        ]);
 
 
     }

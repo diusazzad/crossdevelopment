@@ -8,6 +8,6 @@ use Inertia\Inertia;
 class AdminDashboardController extends Controller
 {
     public function AdminDashboard(){
-        return Inertia::render('AdminDashboard');
+        return view('admin.dashboard');
     }
 }

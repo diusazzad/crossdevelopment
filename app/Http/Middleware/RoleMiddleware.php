@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+// use App\Providers\RouteServiceProvider;
 
 class RoleMiddleware
 {
@@ -21,25 +22,25 @@ class RoleMiddleware
         if ($user && $user->role) {
             switch ($user->role->name) {
                 case 'Admin':
-                    return redirect()->route('Admin.dashboard');
+                    return redirect()->route('admin.dashboard');
                 case 'Mentor':
-                    return redirect()->route('Mentor.dashboard');
+                    return redirect()->route('mentor.dashboard');
                 case 'Teacher':
-                    return redirect()->route('Teacher.dashboard');
+                    return redirect()->route('teacher.dashboard');
                 case 'Student':
-                    return redirect()->route('Student.dashboard');
+                    return redirect()->route('student.dashboard');
                 case 'Parent':
-                    return redirect()->route('Parent.dashboard');
+                    return redirect()->route('parent.dashboard');
                 case 'Counselor':
-                    return redirect()->route('Counselor.dashboard');
+                    return redirect()->route('counselor.dashboard');
                 case 'Advertiser':
-                    return redirect()->route('Advertiser.dashboard');
+                    return redirect()->route('advertiser.dashboard');
                 case 'Manager':
-                    return redirect()->route('Manager.dashboard');
+                    return redirect()->route('manager.dashboard');
 
             }
         }
-
+        // return redirect('/');
         return $next($request);
     }
 }
