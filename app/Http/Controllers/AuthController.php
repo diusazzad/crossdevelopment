@@ -16,36 +16,38 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    // public function login(Request $request)
-    // {
-    //     $credentials = $request->only('email', 'password');
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
 
-    //     if (Auth::attempt($credentials)) {
-    //         $user = Auth::user();
-    //         if ($user && $user->role) {
-    //             switch ($user->role->name) {
-    //                 case 'Admin':
-    //                     return redirect()->route('admin.dashboard');
-    //                 case 'Mentor':
-    //                     return redirect()->route('mentor.dashboard');
-    //                 case 'Teacher':
-    //                     return redirect()->route('teacher.dashboard');
-    //                 case 'Student':
-    //                     return redirect()->route('student.dashboard');
-    //                 case 'Parent':
-    //                     return redirect()->route('parent.dashboard');
-    //                 case 'Counselor':
-    //                     return redirect()->route('counselor.dashboard');
-    //                 case 'Advertiser':
-    //                     return redirect()->route('advertiser.dashboard');
-    //                 case 'Manager':
-    //                     return redirect()->route('manager.dashboard');
-    //             }
-    //         }
-    //     }
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            if ($user && $user->role) {
+                switch ($user->role->name) {
+                    case 'Admin':
+                        return redirect()->route('admin.dashboard');
+                    case 'Mentor':
+                        return redirect()->route('mentor.dashboard');
+                    case 'Teacher':
+                        return redirect()->route('teacher.dashboard');
+                    case 'Student':
+                        return redirect()->route('student.dashboard');
+                    case 'Parent':
+                        return redirect()->route('parent.dashboard');
+                    case 'Counselor':
+                        return redirect()->route('counselor.dashboard');
+                    case 'Advertiser':
+                        return redirect()->route('advertiser.dashboard');
+                    case 'Manager':
+                        return redirect()->route('manager.dashboard');
+                }
+            }
+        }
 
-    //     return redirect()->back()->withInput()->withErrors(['email' => 'Invalid credentials']);
-    // }
+        return redirect()->back()->withInput()->withErrors(['email' => 'Invalid credentials']);
+    }
+
+
 
 
     public function logout(Request $request)

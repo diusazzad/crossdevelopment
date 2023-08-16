@@ -15,9 +15,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Middleware\UserRoleMiddleware;
-use App\Http\Middleware\RoleMiddleware;
-
 // use Inertia\Inertia;
 
 
@@ -41,17 +38,13 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
-// Route::middleware(['web','userrole'])->group(function () {
-    Route::middleware(['role:Admin','userrole'])->group(function () {
-        Route::get('/admin',[AdminDashboardController::class,'AdminDashboard'])->name('admin.dashboard');
-    });
-
-    Route::middleware(['role:student'])->group(function () {
-        Route::get('/student', function () {
-            return 'student dashboard';
-        });
-    });
+// Route::group(['middleware' => ['role:Admin']], function () {
+//     Route::get('/admin', [AdminDashboardController::class, 'AdminDashboard']);
 // });
+
+Route::group(['middleware' => ['role:Admin']], function () {
+    Route::get('/admin', [AdminDashboardController::class, 'AdminDashboard'])->name('admin.dashboard');
+});
 
 
 

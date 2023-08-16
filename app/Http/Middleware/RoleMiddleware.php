@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+
 // use App\Providers\RouteServiceProvider;
 
 class RoleMiddleware
@@ -15,32 +16,31 @@ class RoleMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, ...$roles)
     {
         $user = Auth::user();
 
-        if ($user && $user->role) {
-            switch ($user->role->name) {
-                case 'Admin':
-                    return redirect()->route('admin.dashboard');
-                case 'Mentor':
-                    return redirect()->route('mentor.dashboard');
-                case 'Teacher':
-                    return redirect()->route('teacher.dashboard');
-                case 'Student':
-                    return redirect()->route('student.dashboard');
-                case 'Parent':
-                    return redirect()->route('parent.dashboard');
-                case 'Counselor':
-                    return redirect()->route('counselor.dashboard');
-                case 'Advertiser':
-                    return redirect()->route('advertiser.dashboard');
-                case 'Manager':
-                    return redirect()->route('manager.dashboard');
+        if ($user) {
+            $userRole = $user->role->name;
 
+            if (in_array($userRole, $roles)) {
+                $roleRoutes = [
+                    'Admin' => 'admin.dashboard',
+                    'Mentor' => 'mentor.dashboard',
+                    'Teacher' => 'teacher.dashboard',
+                    'Student' => 'student.dashboard',
+                    'Parent' => 'parent.dashboard',
+                    'Counselor' => 'counselor.dashboard',
+                    'Advertiser' => 'advertiser.dashboard',
+                    'Manager' => 'manager.dashboard',
+                ];
+
+                if (array_key_exists($userRole, $roleRoutes)) {
+                    return redirect()->route($roleRoutes[$userRole]);
+                }
             }
         }
-        // return redirect('/');
-        return $next($request);
+
+        // return $next($request);
     }
 }

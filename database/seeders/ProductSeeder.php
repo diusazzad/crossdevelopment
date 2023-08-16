@@ -10,18 +10,18 @@ use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        $user = User::where('role_id', Role::where('name', 'User')->first()->id)->first();
+        $user = User::where('role_id', Role::where('name', 'Mentor')->first()->id)->first();
 
-        Product::factory()->create([
-            'name' => 'Laptop',
+        $product = new Product([
+            'title' => 'Laptop',
             'description' => 'High-performance laptop',
+            'category' => 'Electronics',
             'price' => 999.99,
-            'user_id' => $user->id,
+            'mentor_id' => 1, // Replace with an actual mentor ID
         ]);
+
+
     }
 }
