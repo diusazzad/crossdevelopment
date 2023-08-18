@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+Route::get('/student', [StudentDashboardController::class, 'index']);
+
+
 Route::get('/', [ContentController::class, 'home']);
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
