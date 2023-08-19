@@ -20,7 +20,7 @@ onMounted(getAllStudent)
         <div v-else-if="studentData">
             <table class="table-auto">
                 <thead>
-                    <tr>
+                    <tr> 
                         <th class="px-4 py-2">ID</th>
                         <th class="px-4 py-2">Name</th>
                         <th class="px-4 py-2">Email</th>
