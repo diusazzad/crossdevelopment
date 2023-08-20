@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\User\UserDeviceInfo;
+use App\Models\User\UserFullInfo;
+use App\Models\User\UserProfile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -21,40 +24,7 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function courses(): HasMany
-    {
-        return $this->hasMany(Course::class, 'mentor_id');
-    }
 
-    public function products(): HasMany
-    {
-        return $this->hasMany(Product::class);
-    }
-
-    public function reviews(): HasMany
-    {
-        return $this->hasMany(Review::class);
-    }
-
-    public function transactions(): HasMany
-    {
-        return $this->hasMany(Transaction::class);
-    }
-
-    public function ads(): HasMany
-    {
-        return $this->hasMany(Ad::class);
-    }
-
-    public function notifications(): HasMany
-    {
-        return $this->hasMany(Notification::class);
-    }
-
-    public function attendedCourses(): BelongsToMany
-    {
-        return $this->belongsToMany(Course::class, 'attendances');
-    }
     /**
      * The attributes that are mass assignable.
      *
@@ -66,6 +36,22 @@ class User extends Authenticatable
         'password',
         'role_id'
     ];
+
+    // Define the relationships
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function deviceInfo()
+    {
+        return $this->hasOne(UserDeviceInfo::class);
+    }
+
+    public function fullInfo()
+    {
+        return $this->hasOne(UserFullInfo::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

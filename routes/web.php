@@ -11,7 +11,9 @@ use App\Http\Controllers\ParentDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\TeacherDashboardController;
+use App\Http\Controllers\TestController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,26 +30,51 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 
+// Test
 
-Route::get('/student', [StudentDashboardController::class, 'index']);
+Route::get('/', [TestController::class, 'form'])->name('form');
+Route::post('/form', [TestController::class, 'store'])->name('store');
+Route::get('/testdb', [TestController::class, 'retrieveData'])->name('retrivedata');
 
+Route::get('/o', function () {
+    // Clear cache and generate optimized files
+    Artisan::call('optimize:clear');
+    Artisan::call('optimize');
 
-Route::get('/', [ContentController::class, 'home']);
+    // Clear route cache
+    Artisan::call('route:clear');
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    // Clear view cache
+    Artisan::call('view:clear');
 
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+    // Clear configuration cache
+    Artisan::call('config:clear');
 
-// Route::group(['middleware' => ['role:Admin']], function () {
-//     Route::get('/admin', [AdminDashboardController::class, 'AdminDashboard']);
-// });
+    // Clear application cache
+    Artisan::call('cache:clear');
 
-Route::group(['middleware' => ['role:Admin']], function () {
-    Route::get('/admin', [AdminDashboardController::class, 'AdminDashboard'])->name('admin.dashboard');
+    return 'Application optimized and caches cleared.';
 });
+
+
+
+// Route::get('/student', [StudentDashboardController::class, 'index']);
+
+
+// Route::get('/', [ContentController::class, 'home']);
+
+// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [AuthController::class, 'login']);
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+// Route::post('/register', [AuthController::class, 'register']);
+
+
+
+
+
+
 
 
 
