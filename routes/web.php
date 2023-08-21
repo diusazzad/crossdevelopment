@@ -44,7 +44,7 @@ Route::get('/o', function () {
     // Clear route cache
     Artisan::call('route:clear');
 
-    // Clear view cache
+    // Clear view cacheD
     Artisan::call('view:clear');
 
     // Clear configuration cache

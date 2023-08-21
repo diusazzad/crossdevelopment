@@ -21,7 +21,7 @@ class TestController extends Controller
         ]);
 
         $user = new User([
-            'name' => $validatedData['name'],
+        'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
         ]);
