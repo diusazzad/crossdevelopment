@@ -1,0 +1,25 @@
+<mxfile host="65bd71144e">
+    <diagram id="lpvokLfpaff2BmqgN_e2" name="Page-1">
+        <mxGraphModel dx="1638" dy="2342" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="User" style="html=1;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.user;" vertex="1" parent="1">
+                    <mxGeometry x="-339" y="425" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Home" style="html=1;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.page;" vertex="1" parent="1">
+                    <mxGeometry x="114" y="127" width="508" height="771" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;ul&gt;&lt;li&gt;Hero Section&lt;/li&gt;&lt;li&gt;Featured Product&lt;/li&gt;&lt;li&gt;Testimonials&lt;/li&gt;&lt;li&gt;Blog Posts&lt;/li&gt;&lt;li&gt;Newsletter Signup&lt;/li&gt;&lt;li&gt;Image Galleries&lt;/li&gt;&lt;li&gt;Featured Videos&lt;/li&gt;&lt;li&gt;About Us Section&lt;/li&gt;&lt;li&gt;Contact Information&lt;/li&gt;&lt;li&gt;Social Media Feeds&lt;/li&gt;&lt;li&gt;Counters and Statistics&lt;/li&gt;&lt;li&gt;FAQs&lt;/li&gt;&lt;li&gt;CTA&lt;/li&gt;&lt;li&gt;Customer logos&lt;/li&gt;&lt;li&gt;Interactive elements&lt;/li&gt;&lt;li&gt;Events and calendar&lt;/li&gt;&lt;li&gt;news and updates&lt;/li&gt;&lt;li&gt;Resource Downloads&lt;/li&gt;&lt;li&gt;Search Bar&lt;/li&gt;&lt;li&gt;Featred Clients or Projects&lt;/li&gt;&lt;/ul&gt;" style="whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#0079D6;strokeColor=none;fontColor=#FFFFFF;spacingTop=-6;sketch=0;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-196" y="-473" width="225" height="441" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

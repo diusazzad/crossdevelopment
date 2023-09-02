@@ -32,78 +32,78 @@ return new class extends Migration {
 
 
         // Normalization
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            // $table->foreignId('role_id')->constrained()->index(); // Relationship with roles table
-            $table->foreignId('role_id')->default(1)->constrained('roles'); // Set default role
-            $table->string('avatar')->nullable();
-            $table->timestamps();
-        });
+        // Schema::create('users', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name');
+        //     $table->string('email')->unique();
+        //     $table->timestamp('email_verified_at')->nullable();
+        //     $table->string('password');
+        //     // $table->foreignId('role_id')->constrained()->index(); // Relationship with roles table
+        //     $table->foreignId('role_id')->default(1)->constrained('roles'); // Set default role
+        //     $table->string('avatar')->nullable();
+        //     $table->timestamps();
+        // });
 
-        Schema::create('user_profiles', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->index();
-            $table->string('bio')->nullable();
-            $table->date('birthdate')->nullable();
-            $table->string('location')->nullable();
-            $table->string('website')->nullable();
-            // $table->enum('gender', ['male', 'female', 'other'])->nullable();
-            $table->enum('gender', ['male', 'female', 'other'])->nullable();
-            $table->string('phone')->nullable();
-            $table->string('interests')->nullable();
-            $table->string('occupation')->nullable();
-            $table->string('timezone')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
-        });
-        Schema::create('user_device_infos', function (Blueprint $table) {
-            $table->id();
-            // $table->foreignId('user_id')->constrained()->index();
-            $table->foreignId('user_id')->constrained();
-            $table->ipAddress('ip_address')->nullable();
-            $table->string('user_region')->nullable();
-            $table->string('mobile_carrier')->nullable();
-            $table->string('advertising_id')->nullable();
-            $table->string('device_model')->nullable();
-            $table->string('device_system')->nullable();
-            $table->string('network_type')->nullable();
-            $table->string('device_id')->nullable();
-            $table->string('screen_resolution')->nullable();
-            $table->string('operating_system')->nullable();
-            $table->text('app_and_file_info')->nullable();
-            $table->text('key_stroke_patterns')->nullable();
-            $table->string('battery_state')->nullable();
-            $table->string('audio_settings')->nullable();
-            $table->string('connected_audio_devices')->nullable();
-            $table->timestamps();
-        });
+        // Schema::create('user_profiles', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('user_id')->constrained()->index();
+        //     $table->string('bio')->nullable();
+        //     $table->date('birthdate')->nullable();
+        //     $table->string('location')->nullable();
+        //     $table->string('website')->nullable();
+        //     // $table->enum('gender', ['male', 'female', 'other'])->nullable();
+        //     $table->enum('gender', ['male', 'female', 'other'])->nullable();
+        //     $table->string('phone')->nullable();
+        //     $table->string('interests')->nullable();
+        //     $table->string('occupation')->nullable();
+        //     $table->string('timezone')->nullable();
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
+        // Schema::create('user_device_infos', function (Blueprint $table) {
+        //     $table->id();
+        //     // $table->foreignId('user_id')->constrained()->index();
+        //     $table->foreignId('user_id')->constrained();
+        //     $table->ipAddress('ip_address')->nullable();
+        //     $table->string('user_region')->nullable();
+        //     $table->string('mobile_carrier')->nullable();
+        //     $table->string('advertising_id')->nullable();
+        //     $table->string('device_model')->nullable();
+        //     $table->string('device_system')->nullable();
+        //     $table->string('network_type')->nullable();
+        //     $table->string('device_id')->nullable();
+        //     $table->string('screen_resolution')->nullable();
+        //     $table->string('operating_system')->nullable();
+        //     $table->text('app_and_file_info')->nullable();
+        //     $table->text('key_stroke_patterns')->nullable();
+        //     $table->string('battery_state')->nullable();
+        //     $table->string('audio_settings')->nullable();
+        //     $table->string('connected_audio_devices')->nullable();
+        //     $table->timestamps();
+        // });
 
-        // Denormalized table
-        Schema::create('user_full_infos', function (Blueprint $table) {
-            $table->id();
-            // $table->foreignId('user_id')->constrained()->index();
-            $table->foreignId('user_id')->constrained();
-            $table->string('location')->nullable();
-            $table->string('website')->nullable();
-            $table->enum('gender', ['male', 'female', 'other'])->nullable();
-            $table->string('phone')->nullable();
-            $table->string('interests')->nullable();
-            $table->string('occupation')->nullable();
-            // ... other fields from user_profiles
-            $table->text('about')->nullable();
-            $table->string('education')->nullable();
-            $table->string('language')->nullable();
-            $table->string('skills')->nullable();
-            $table->string('social_links')->nullable();
-            $table->string('hobbies')->nullable();
-            $table->string('family_status')->nullable();
-            $table->string('relationship_status')->nullable();
-            $table->timestamps();
-        });
+        // // Denormalized table
+        // Schema::create('user_full_infos', function (Blueprint $table) {
+        //     $table->id();
+        //     // $table->foreignId('user_id')->constrained()->index();
+        //     $table->foreignId('user_id')->constrained();
+        //     $table->string('location')->nullable();
+        //     $table->string('website')->nullable();
+        //     $table->enum('gender', ['male', 'female', 'other'])->nullable();
+        //     $table->string('phone')->nullable();
+        //     $table->string('interests')->nullable();
+        //     $table->string('occupation')->nullable();
+        //     // ... other fields from user_profiles
+        //     $table->text('about')->nullable();
+        //     $table->string('education')->nullable();
+        //     $table->string('language')->nullable();
+        //     $table->string('skills')->nullable();
+        //     $table->string('social_links')->nullable();
+        //     $table->string('hobbies')->nullable();
+        //     $table->string('family_status')->nullable();
+        //     $table->string('relationship_status')->nullable();
+        //     $table->timestamps();
+        // });
 
 
 

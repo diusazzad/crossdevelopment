@@ -15,30 +15,30 @@ return new class extends Migration {
         //     $table->timestamps();
         // });
         // Create payments table (for storing payment history)
-        Schema::create('payments', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->decimal('amount', 10, 2);
-            $table->string('payment_method');
-            $table->string('transaction_id');
-            $table->timestamps();
-        });
+        // Schema::create('payments', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('user_id')->constrained('users');
+        //     $table->decimal('amount', 10, 2);
+        //     $table->string('payment_method');
+        //     $table->string('transaction_id');
+        //     $table->timestamps();
+        // });
 
-        // Create products table (for products available for purchase)
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->decimal('price', 10, 2);
-            $table->timestamps();
-        });
+        // // Create products table (for products available for purchase)
+        // Schema::create('products', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name');
+        //     $table->decimal('price', 10, 2);
+        //     $table->timestamps();
+        // });
 
-        // Create purchases table (for tracking user purchases)
-        Schema::create('purchases', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('product_id')->constrained('products');
-            $table->timestamps();
-        });
+        // // Create purchases table (for tracking user purchases)
+        // Schema::create('purchases', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('user_id')->constrained('users');
+        //     $table->foreignId('product_id')->constrained('products');
+        //     $table->timestamps();
+        // });
     }
 
     public function down()

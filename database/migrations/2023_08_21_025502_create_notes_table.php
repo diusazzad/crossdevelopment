@@ -16,22 +16,22 @@ return new class extends Migration {
         // });
         // Create payments table (for storing payment history)
         // Create notes table (for storing notes)
-        Schema::create('notes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('title');
-            $table->text('content');
-            $table->boolean('is_private')->default(false);
-            $table->timestamps();
-        });
+        // Schema::create('notes', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('user_id')->constrained('users');
+        //     $table->string('title');
+        //     $table->text('content');
+        //     $table->boolean('is_private')->default(false);
+        //     $table->timestamps();
+        // });
 
-        // Create note_attachments table (for attaching images/files to notes)
-        Schema::create('note_attachments', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('note_id')->constrained('notes');
-            $table->string('filename');
-            $table->timestamps();
-        });
+        // // Create note_attachments table (for attaching images/files to notes)
+        // Schema::create('note_attachments', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('note_id')->constrained('notes');
+        //     $table->string('filename');
+        //     $table->timestamps();
+        // });
     }
 
     public function down()

@@ -2,46 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notes;
+use App\Models\Test;
 use App\Models\User;
 use App\Models\User\UserFullInfo;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function form()
+    public function index()
     {
-        return view('form');
+        $tests = Test::all();
+        return response()->json($tests);
     }
+
     public function store(Request $request)
     {
+        // Validate the input
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
+            'title' => 'required',
+            'content' => 'required',
+            'is_private' => 'boolean',
         ]);
 
-        $user = new User([
-        'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => bcrypt($validatedData['password']),
-        ]);
+        // Create a new Test record
+        $test = Test::create($validatedData);
 
-        // Save the user without explicitly setting the role_id
-        $user->save();
-
-        return redirect()->route('form')->with('success', 'User created successfully');
+        return response()->json(['message' => 'Test record created successfully', 'test' => $test]);
     }
 
-    public function retrieveData(Request $request)
+    public function show($id)
     {
-        $userId = $request->input('user_id');
-        $user = User::select('users.*', 'user_profiles.bio', 'user_profiles.location', 'user_device_infos.device_model', 'user_full_infos.about')
-            ->join('user_profiles', 'users.id', '=', 'user_profiles.user_id')
-            ->join('user_device_infos', 'users.id', '=', 'user_device_infos.user_id')
-            ->join('user_full_infos', 'users.id', '=', 'user_full_infos.user_id')
-            ->where('users.id', $userId)
-            ->first();
-
-        return view('test', compact('user'));
+        $test = Test::findOrFail($id);
+        return response()->json($test);
     }
+
 }

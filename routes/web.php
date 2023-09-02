@@ -30,51 +30,6 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 
-// Test
-
-Route::get('/', [TestController::class, 'form'])->name('form');
-Route::post('/form', [TestController::class, 'store'])->name('store');
-Route::get('/testdb', [TestController::class, 'retrieveData'])->name('retrivedata');
-
-Route::get('/o', function () {
-    // Clear cache and generate optimized files
-    Artisan::call('optimize:clear');
-    Artisan::call('optimize');
-
-    // Clear route cache
-    Artisan::call('route:clear');
-
-    // Clear view cacheD
-    Artisan::call('view:clear');
-
-    // Clear configuration cache
-    Artisan::call('config:clear');
-
-    // Clear application cache
-    Artisan::call('cache:clear');
-
-    return 'Application optimized and caches cleared.';
-});
-
-
-
-// Route::get('/student', [StudentDashboardController::class, 'index']);
-
-
-// Route::get('/', [ContentController::class, 'home']);
-
-// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [AuthController::class, 'login']);
-// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-// Route::post('/register', [AuthController::class, 'register']);
-
-
-
-
-
-
 
 
 
@@ -89,3 +44,7 @@ Route::get('/o', function () {
 // });
 
 // require __DIR__.'/auth.php';
+
+
+
+Route::get('/', [ContentController::class, 'home']);
