@@ -1,21 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\AdvertiserDashboardController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ContentController;
-use App\Http\Controllers\CounselorDashboardController;
-use App\Http\Controllers\ManagerDashboardController;
-use App\Http\Controllers\MentorDashboardController;
-use App\Http\Controllers\ParentDashboardController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StudentDashboardController;
-use App\Http\Controllers\TeacherDashboardController;
-use App\Http\Controllers\TestController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 // use Inertia\Inertia;
 
@@ -47,4 +36,19 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Route::get('/', [ContentController::class, 'home']);
+Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
+Route::post('/login', [AuthController::class, 'login']); // Handle login for all users
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', function () {
+        return 'Welcome, Admin!';
+    })->middleware('role:admin');
+
+    Route::get('/moderator', function () {
+        return 'Welcome, Moderator!';
+    })->middleware('role:admin,moderator');
+
+    Route::get('/user', function () {
+        return 'Welcome, User!';
+    })->middleware('role:admin,moderator,user');
+});

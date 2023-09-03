@@ -19,9 +19,9 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     // User model
-    public function role(): BelongsTo
+    public function roles()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsToMany(Role::class, 'role');
     }
 
 
@@ -34,8 +34,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role_id'
+        'role'
     ];
+
+    public function getRoleAttribute()
+    {
+        return $this->attributes['role'];
+    }
 
     // Define the relationships
     public function profile()

@@ -15,20 +15,28 @@ class UsersTableSeeder extends Seeder
 
     public function run(): void
     {
-        // Create a sample user
-        User::create([
-            'name' => 'John Doe',
-            'email' => 'johndoe@example.com',
-            'email_verified_at' => Carbon::now(),
+        // Insert an admin user
+        DB::table('users')->insert([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
             'password' => Hash::make('password'),
-            // Use your desired password
-            'role_id' => 1,
-            // Default role ID
-            'avatar' => null,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+            'role_id' => 1, // Replace with the appropriate role ID for admin
         ]);
 
+        // Insert a moderator user
+        DB::table('users')->insert([
+            'name' => 'Moderator User',
+            'email' => 'moderator@example.com',
+            'password' => Hash::make('password'),
+            'role_id' => 2, // Replace with the appropriate role ID for moderator
+        ]);
 
+        // Insert a regular user
+        DB::table('users')->insert([
+            'name' => 'Regular User',
+            'email' => 'user@example.com',
+            'password' => Hash::make('password'),
+            'role_id' => 3, // Replace with the appropriate role ID for user
+        ]);
     }
 }
